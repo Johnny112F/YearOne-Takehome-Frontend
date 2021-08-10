@@ -1,11 +1,36 @@
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import MoviesList from './MoviesList/MoviesList';
+import MovieDetails from './MovieDetail';
+import NotFound from './404';
+import Home from './Home';
+import NavBar from './NavBar';
+import Contact from './Contact';
 
+/**
+ * App component hosts the routing for the app.
+ */
 function App() {
+
   return (
     <div className="App">
-      <MoviesList />
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path="/movies/:id">
+            <MovieDetails />
+          </Route>
+          <Route exact path="/search">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+        <Contact />
+      </BrowserRouter>
     </div>
   );
 }
