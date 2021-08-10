@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import MovieDetails from './MovieDetail';
+import MovieDetails from './MovieDetails';
 import NotFound from './404';
 import Home from './Home';
 import NavBar from './NavBar';

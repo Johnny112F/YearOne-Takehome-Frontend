@@ -1,5 +1,4 @@
-import MovieCard from '../MovieListCard';
-import './MovieList.css';
+import MovieCard from '../MovieCard';
 
 /**
  * Given an Array 'movies', render <li> for each movie. 

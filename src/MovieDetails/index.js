@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RatingTable from '../RatingTable';
-import './MovieDetail.css';
 
 const BASE_URL = "http://localhost:5000";
 
 /**
- * MovieDetail renders a movie's details, form for rating a movie, 
+ * MovieDetails renders a movie's details, form for rating a movie, 
  * and the RatingTable component.
  * 
  * Handles contact to backend API:
  *    - fetchDetails() pings the GET `/movies/:id` endpoint.
  *    - handleRating() pings the POST `/movies/:id/rate` endpoint.
  */
-function MovieDetail() {
+function MovieDetails() {
   const [data, setData] = useState({});
   const { id } = useParams();
 
@@ -49,7 +48,7 @@ function MovieDetail() {
   }
 
   return (
-    <div className="MovieDetail">
+    <div className="MovieDetails">
       {data &&
         <>
           <header className="MovieDetail-title">
@@ -79,4 +78,4 @@ function MovieDetail() {
   );
 }
 
-export default MovieDetail;
+export default MovieDetails;
