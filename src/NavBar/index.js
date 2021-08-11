@@ -4,7 +4,7 @@
  function NavBar() {
   return (
     <div className="NavBar">
-     <a href="/"><span>Momo</span>vies</a>
+     <a href="/"><span>YearOne</span>MovieRatings</a>
     </div>
   );
 }

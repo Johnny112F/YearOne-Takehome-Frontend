@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RatingTable from '../RatingTable';
+import './style.css'
 
 const BASE_URL = "http://localhost:5000";
 
@@ -19,11 +20,27 @@ function MovieDetails() {
   // fetches the movie detail data upon mounting.
   useEffect(function handleFetchDetails() {
     async function fetchDetails() {
-      let res = await fetch(`${BASE_URL}/movies/${id}`);
-      let resData = await res.json();
-      let details = resData.details;
-      let director = resData.director;
-      setData({ ...details, director: director, thumbs_up: resData.thumbs_up, thumbs_down: resData.thumbs_down });
+      let response = await fetch(`/movies/${id}`);
+      let movieDetails = await response.json();
+      //destructure key-value pairs from response object.
+      let { title, director, release_year, description, poster_path, thumbs_down, thumbs_up } = movieDetails;
+      //create camel-case variables in place of pythonic snake case.
+      let thumbsUp = thumbs_up;
+      let thumbsDown = thumbs_down;
+      let posterPath = poster_path;
+      let releaseYear = release_year;
+      //make a copy of previous data object and put new data in.
+      setData({
+        ...movieDetails,
+        title,
+        releaseYear,
+        description,
+        director,
+        thumbsUp,
+        thumbsDown,
+        posterPath
+      });
+      console.log("this is the data object", data);
     }
     fetchDetails();
   }, [id]);
@@ -32,7 +49,7 @@ function MovieDetails() {
   const handleRating = async (evt) => {
     evt.preventDefault();
     const { value } = evt.target;
-    let res = await fetch(`${BASE_URL}/movies/${id}/rate`, {
+    let response = await fetch(`/movies/${id}/rate`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -40,7 +57,7 @@ function MovieDetails() {
       },
       body: JSON.stringify({ "rating": value, "title": data.title })
     });
-    let ratings = await res.json();
+    let ratings = await response.json();
     setData(currVal => ({
       ...currVal,
       ...ratings
@@ -48,7 +65,7 @@ function MovieDetails() {
   }
 
   return (
-    <div className="MovieDetails">
+    <div className="MovieDetail">
       {data &&
         <>
           <header className="MovieDetail-title">
@@ -56,17 +73,17 @@ function MovieDetails() {
             <span>(Alt: {data.original_title})</span>
           </header>
           <section className="MovieDetail-details">
-            <img src={data.poster_path ? `https://image.tmdb.org/t/p/original${data.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'} alt={data.title} />
+            <img src={data.posterPath ? `https://image.tmdb.org/t/p/original${data.posterPath}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'} alt={data.title} />
             <div className="MovieDetails-description-container">
               <h4>Director: </h4>
-              <p>{data.director}</p>
-              <h4>Released date: </h4>
-              <p>{data.release_date ? data.release_date : "Unknown"}</p>
-              <h4>Overview</h4>
-              <p>{data.overview ? data.overview : "No description found."}</p>
+              <p>{data.director ? data.director : "No director found."}</p>
+              <h4>Release Year:</h4>
+              <p>{data.release_year ? data.releaseYear : "No release year found."}</p>
+              <h4>Description</h4>
+              <p>{data.description ? data.description : "No description found."}</p>
             </div>
           </section>
-          <p className="MovieDetail-rating-title">What did you think about this movie?</p>
+          <p className="MovieDetail-rating-title">Please leave a review below...</p>
           <RatingTable thumbs_up={data.thumbs_up} thumbs_down={data.thumbs_down} />
           <form>
             <button className="MovieDetail-up" value="1" onClick={handleRating}>Love it!</button>

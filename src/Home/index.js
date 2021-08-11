@@ -3,8 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Alert from '../Alert';
 import MoviesList from '../MoviesList';
 import SearchForm from '../SearchForm';
-
-const BASE_URL = "http://localhost:5000";
+import './style.css'
 
 /**
  * MovieListPage displays the SearchForm, MovieList, Alerts (if any).
@@ -41,7 +40,7 @@ function Home() {
   const searchApi = async (term, page = 1) => {
     setAlerts("");
     try {
-      let res = await fetch(`${BASE_URL}/movies/search?term=${term}&page=${page}`);
+      let res = await fetch(`/movies/search?term=${term}&page=${page}`);
       let movieResults = await res.json();
       if (movieResults.errors) {
         setAlerts(movieResults.errors);
@@ -74,7 +73,7 @@ function Home() {
     <div className="MovieListPage">
       <header className="MovieListPage-header">
         <p className="MovieListPage-about">The Movie Search Engine</p>
-        <h1><span>Momo</span>vies</h1>
+        <h1><span>YearOne</span>MovieRatings</h1>
         <p className="MovieListPage-credits">powered by TMDB</p>
       </header>
       <SearchForm searchApi={searchApi} setAlerts={setAlerts}/>

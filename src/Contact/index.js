@@ -5,7 +5,7 @@ function Contact() {
   return (
     <section className="Contact">
       <p>Questions or suggestions or both?</p>
-      <p>Contact me <a href="https://github.com/dogpineapple" target="_blank" rel="noreferrer">@dogpineapple</a> on Github!</p>
+      <p>Contact me <a href="https://github.com/johnny112f" target="_blank" rel="noreferrer">@johnny112f</a> on Github!</p>
     </section>
   )
 }
