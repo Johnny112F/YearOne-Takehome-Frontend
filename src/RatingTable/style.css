@@ -1,0 +1,21 @@
+.RatingTable {
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.RatingTable > thead, tbody { 
+  font-size: 1.6rem;
+}
+
+.RatingTable th {
+  padding: 0.5rem 3rem;
+  width: 13rem;
+}
+
+.RatingTable td {
+  background-color: rgb(77, 77, 77);
+  border-radius: 5px;
+  padding: 0.5rem 0rem;
+}

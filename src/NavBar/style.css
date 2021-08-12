@@ -1,0 +1,9 @@
+.NavBar {
+  padding: 2.5rem 0rem 0rem 5%;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.NavBar span {
+  color: rgb(175, 212, 255);
+}

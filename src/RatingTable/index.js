@@ -1,3 +1,4 @@
+import './style.css'
 /**
  * RatingTable renders the number of `thumbs_up` and `thumbs-down`
  * in a table.
@@ -7,8 +8,8 @@
     <table className="RatingTable">
       <thead>
         <tr>
-          <th>Love it!</th>
-          <th>Nah!</th>
+          <th>Excellent!</th>
+          <th>Meh...</th>
         </tr>
       </thead>
       <tbody>
