@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Alert from '../Alert';
 import MoviesList from '../MoviesList';
 import SearchForm from '../SearchForm';
+import PageChangeDropDown from '../PageChangeDropDown/PageChangeDropDown';
 import './style.css'
 
 /**
@@ -70,24 +71,19 @@ function Home() {
   }
 
   return (
-    <div className="MovieListPage">
-      <header className="MovieListPage-header">
-        <p className="MovieListPage-about">The Movie Search Engine</p>
+    <div className="HomePage">
+      <header className="HomePage-header">
+        <p className="HomePage-about">An Application For Finding and Rating Films </p>
         <h1><span>YearOne</span>MovieRatings</h1>
-        <p className="MovieListPage-credits">powered by TMDB</p>
+        <p className="HomePage-credits">API by TMDB</p>
       </header>
-      <SearchForm searchApi={searchApi} setAlerts={setAlerts}/>
-      <section className="MovieListPage-pages-container">
-        <form className="MovieListPage-page-form">
-          <label>Page: </label>
-          <select onChange={handlePageChange}>
-            {pageNumbers.map(num => {
-              return <option key={num} value={num}>{num}</option>
-            })}
-          </select>
-        </form>
-        {alerts.length !== 0 && alerts.map(alert => <Alert key={alert} alert={alert} />)}
-        {data.totalResults !== 0 && <p className="MovieListPage-ttl-results">{data.totalResults} movies found!</p>}
+      <SearchForm searchApi={searchApi} setAlerts={setAlerts} />
+      <section className="HomePage-pages-container">
+        {pageNumbers.length !== 0 &&
+          <PageChangeDropDown handlePageChange={handlePageChange} pageNumbers={pageNumbers} />
+        }
+        {alerts.length !== 0 && alerts.map(alert => <Alert id="Red-Text" key={alert} alert={alert} />)}
+        {data.totalResults !== 0 && <p className="HomePage-ttl-results">{data.totalResults} movies found!</p>}
       </section>
       <MoviesList movies={data.movies} />
     </div>

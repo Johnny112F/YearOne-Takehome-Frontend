@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import './style.css'
 /**
  * SearchForm renders a controlled form for search term.
  */

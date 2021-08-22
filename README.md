@@ -1,3 +1,12 @@
+# FrontEnd setup
+
+1.Make sure you've properly setup the backend for the application [https://github.com/Johnny112F/YearOne-Takehome-Backend].
+
+2.Navigate to the movies_frontend folder and install dependencies using the command *npm i package-lock.json*.
+
+3.Run *npm start* in the movies_frontend folder to start the frontend server. This should open the application on localhost:3000 in your browser.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +77,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+![Drag Racing](Screen Shot 2021-08-22 at 3.05.31 PM.png)

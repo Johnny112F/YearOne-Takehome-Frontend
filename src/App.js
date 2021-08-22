@@ -5,6 +5,7 @@ import NotFound from './404';
 import Home from './Home';
 import NavBar from './NavBar';
 import Contact from './Contact';
+import './App.css';
 
 /**
  * App component hosts the routing for the app.

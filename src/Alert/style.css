@@ -1,5 +1,9 @@
 .Alert {
-  background-color: rgb(255, 95, 95);
+  background-color: rgb(199, 11, 11);
   padding: 1.2rem 2rem;
   border-radius: 10px;
+}
+
+.alert-text{
+  color: red;
 }

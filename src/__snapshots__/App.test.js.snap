@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot tests for stability shows initial home search page 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <div
+      class="NavBar"
+    >
+      <a
+        href="/"
+      >
+        <span>
+          YearOne
+        </span>
+        <span
+          id="blue"
+        >
+          MovieRatings
+        </span>
+      </a>
+    </div>
+    <div
+      class="MovieListPage"
+    >
+      <header
+        class="MovieListPage-header"
+      >
+        <p
+          class="MovieListPage-about"
+        >
+          An Application For Finding and Rating Films 
+        </p>
+        <h1>
+          <span>
+            YearOne
+          </span>
+          MovieRatings
+        </h1>
+        <p
+          class="MovieListPage-credits"
+        >
+          API by TMDB
+        </p>
+      </header>
+      <form
+        class="SearchForm"
+      >
+        <input
+          name="term"
+          placeholder="Search movie titles.."
+          value=""
+        />
+        <button
+          type="Submit"
+        >
+          Search
+        </button>
+      </form>
+      <section
+        class="MovieListPage-pages-container"
+      />
+      <ul
+        class="MoviesList"
+      />
+    </div>
+    <section
+      class="Contact"
+    >
+      <p>
+        Questions or suggestions or both?
+      </p>
+      <p>
+        Contact me 
+        <a
+          href="https://github.com/johnny112f"
+          rel="noreferrer"
+          target="_blank"
+        >
+          @johnny112f
+        </a>
+         on Github!
+      </p>
+    </section>
+  </div>
+</div>
+`;

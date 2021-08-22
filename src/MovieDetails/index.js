@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RatingTable from '../RatingTable';
-import { FaThumbsUp } from "react-icons/fa"
-import { FaThumbsDown } from "react-icons/fa"
+import { FaThumbsUp } from "react-icons/fa";
+import { FaThumbsDown } from "react-icons/fa";
 import './style.css'
 
 /**
@@ -23,13 +23,14 @@ function MovieDetails() {
     async function fetchDetails() {
       let response = await fetch(`/movies/${id}`);
       let movieDetails = await response.json();
-      // destructure key-value pairs from response object.
-      let { title, director, release_year, description, poster_path, thumbs_down, thumbs_up } = movieDetails;
-      // create camel-case variables in place of pythonic snake case.
-      let thumbsUp = thumbs_up;
-      let thumbsDown = thumbs_down;
-      let posterPath = poster_path;
-      let releaseYear = release_year;
+      let { title,
+        director,
+        release_year: releaseYear,
+        description,
+        poster_path: posterPath,
+        thumbs_down: thumbsDown,
+        thumbs_up: thumbsUp
+      } = movieDetails;
       // make a copy of previous data object and put new data in.
       setData({
         ...movieDetails,
@@ -50,14 +51,14 @@ function MovieDetails() {
     evt.preventDefault();
     const { value } = evt.target;
     // variable to store options necessary for POST request.
-      const requestOptions = {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ "rating": value, "title": data.title })
-      };
+    const requestOptions = {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "rating": value, "title": data.title })
+    };
     let response = await fetch(`/movies/${id}/rate`, requestOptions);
     let ratings = await response.json();
     setData(currVal => ({
@@ -67,30 +68,41 @@ function MovieDetails() {
   }
 
   return (
-    <div className="MovieDetail">
+    <div className="MovieDetails">
       {data &&
         <>
-          <header className="MovieDetail-title">
+          <header className="MovieDetails-title">
             <h1>{data.title}</h1>
-            <span>(Alt: {data.original_title})</span>
+            {data.original_title && <span>(Alt: {data.original_title})</span>}
           </header>
-          <section className="MovieDetail-details">
-            <img src={data.posterPath ? `https://image.tmdb.org/t/p/original${data.posterPath}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'} alt={data.title} />
+          <section className="MovieDetails-details">
+            <img src={data.posterPath
+              ? `https://image.tmdb.org/t/p/original${data.posterPath}`
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'} alt={data.title} />
             <div className="MovieDetails-description-container">
               <h4>Director: </h4>
-              <p>{data.director ? data.director : "No director found."}</p>
+              <p>{data.director
+                ? data.director
+                : "No director found."}
+              </p>
               <h4>Release Year:</h4>
-              <p>{data.release_year ? data.releaseYear : "No release year found."}</p>
+              <p>{data.release_year
+                ? data.releaseYear
+                : "No release year found."}
+              </p>
               <h4>Description</h4>
-              <p>{data.description ? data.description : "No description found."}</p>
+              <p>{data.description
+                ? data.description
+                : "No description found."}
+              </p>
             </div>
           </section>
-          <p className="MovieDetail-rating-title">Please leave a review below...</p>
+          <p className="MovieDetails-rating-title">Please leave a review below...</p>
           <RatingTable thumbs_up={data.thumbs_up} thumbs_down={data.thumbs_down} />
           <form>
-            <button className="MovieDetail-up" value="1" onClick={handleRating}><FaThumbsUp /></button>
+            <button className="MovieDetails-up" value="1" onClick={handleRating}><FaThumbsUp /></button>
             <i className="fas fa-thumbs-up"></i>
-            <button className="MovieDetail-down" value="0" onClick={handleRating}><FaThumbsDown /></button>
+            <button className="MovieDetails-down" value="0" onClick={handleRating}><FaThumbsDown /></button>
           </form>
         </>
       }

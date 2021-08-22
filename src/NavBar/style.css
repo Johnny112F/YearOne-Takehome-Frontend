@@ -5,5 +5,17 @@
 }
 
 .NavBar span {
-  color: rgb(175, 212, 255);
+  color: rgb(36, 2, 11);
+}
+
+#blue {
+  color:aqua;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-.MovieListPage {
+.HomePage {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -6,32 +6,45 @@
   margin-bottom: 4rem;
 }
 
-.MovieListPage-header > h1 {
+.HomePage-header > h1 {
   font-size: 5rem;
 }
 
-.MovieListPage-header > h1 > span {
-  color: rgb(175, 212, 255);
+.HomePage-header > h1 > span {
+  color: rgb(255, 175, 192);
 }
 
-.MovieListPage-about {
+.HomePage-about {
   font-size: 1.6rem;
+  font-family: fantasy;
+  color: aliceblue;
+  left: 0;
 }
 
-.MovieListPage-credits {
+.HomePage-credits {
   font-size: 1.2rem;
   text-align: right;
+  color: aliceblue;
 }
 
-.MovieListPage-header {
+.HomePage-header {
   margin: 3rem;
 }
 
-.MovieListPage-pages-container{
+.HomePage-pages-container{
   text-align: center;
   font-size: 1.6rem;
+  color: red;
 }
 
-.MovieListPage-pages-container > * {
+.HomePage-pages-container {
   margin: 1.5rem 1rem;
+}
+
+.pages-color {
+  color: blue;
+}
+
+.HomePage-ttl-results {
+  color: yellow;
 }

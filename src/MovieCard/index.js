@@ -5,12 +5,15 @@ import './style.css'
  * Renders a list item with a link to the movie's detail page, 
  * poster image, and movie title.
  */
- function MovieListCard({ id, title, posterPath }) {
+function MovieListCard({ id, title, posterPath }) {
   return (
     <li className="MovieCard">
       <a href={`/movies/${id}`}>
-      <img src={posterPath ? `https://image.tmdb.org/t/p/original${posterPath}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'} alt={title}/>
-      <p className="MovieCard-title">{title}</p></a>
+        <img src={posterPath
+          ? `https://image.tmdb.org/t/p/original${posterPath}`
+          : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png'}
+          alt={title} />
+        <p className="MovieCard-title">{title}</p></a>
     </li>
   );
 }
