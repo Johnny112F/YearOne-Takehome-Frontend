@@ -6,6 +6,25 @@
 
 3.Run *npm start* in the movies_frontend folder to start the frontend server. This should open the application on localhost:3000 in your browser.
 
+# App Screen Shots
+
+HomePage
+
+<img width="400" alt="Screen Shot 2021-08-22 at 3 04 12 PM" src="https://user-images.githubusercontent.com/50811190/130369848-03877461-f357-495e-9ce6-d66bfa84552c.png">
+
+SearchResults
+
+<img width="400" alt="Screen Shot 2021-08-22 at 3 05 52 PM" src="https://user-images.githubusercontent.com/50811190/130369869-55fff4d5-9b0d-4002-b7bd-e8dc5607aa93.png">
+
+MovieDetails
+
+<img width="400" alt="Screen Shot 2021-08-22 at 4 46 36 PM" src="https://user-images.githubusercontent.com/50811190/130369876-e9092760-b097-477b-9a36-26a8e8473ac7.png">
+
+Leave a rating
+
+<img width="400" alt="Screen Shot 2021-08-22 at 4 46 52 PM" src="https://user-images.githubusercontent.com/50811190/130369885-acfcf1f2-23d0-4578-a97a-8111c7bf1257.png">
+
+
 
 # Getting Started with Create React App
 
@@ -77,5 +96,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-![Drag Racing](Screen Shot 2021-08-22 at 3.05.31 PM.png)
