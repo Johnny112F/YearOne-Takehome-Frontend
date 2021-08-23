@@ -8,7 +8,7 @@
       The page you are trying to access hasn't been made yet.
       </h1>
       <p className="NotFound-contact">
-      Let me know on github <a href="https://github.com/dogpineapple" target="_blank" rel="noreferrer">@dogpineapple</a>!
+      Let me know on github <a href="https://github.com/johnny112f" target="_blank" rel="noreferrer">@dogpineapple</a>!
       </p>
     </div>
   );
